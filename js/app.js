@@ -22,11 +22,15 @@ const loadData = (id) =>{
     fetch(url)
     .then(res => res.json())
     .then(data => displayData(data.data));
+    // .then(data => console.log(data.data));
 }
 
 const displayData = items =>{
     const showItems = document.getElementById('show-items');
     items.forEach(item =>{
+    const foundItems = document.getElementById('items-found');
+    foundItems.innerText = `${items.length} Items Found
+        `;
         const itemDiv = document.createElement('div');
         itemDiv.innerHTML = `
         <div class="card mb-3">
@@ -47,6 +51,6 @@ const displayData = items =>{
     })
 }
 
-loadData();
+loadData('8');
 
 loadCategoriesName();
