@@ -1,8 +1,13 @@
 const loadCategoriesName = async() =>{
     const url = `https://openapi.programming-hero.com/api/news/categories`
-    const res = await fetch(url);
-    const data = await res.json();
-    displayCategoriesName(data.data.news_category);
+    try {
+        const res = await fetch(url);
+        const data = await res.json();
+        displayCategoriesName(data.data.news_category);
+    }
+    catch (error){
+        console.log(error);
+    }
 }
 
 const displayCategoriesName = categories =>{
@@ -19,9 +24,15 @@ const displayCategoriesName = categories =>{
 
 const loadData = async(id) =>{
     const url = `https://openapi.programming-hero.com/api/news/category/0${id}`
-    const res = await fetch(url)
-    const data = await res.json();
-    displayData(data.data);
+    try {
+        const res = await fetch(url)
+        const data = await res.json();
+        displayData(data.data);
+    }
+    catch (error){
+        console.log(error);
+    }
+    
 }
 
 const displayData = items =>{
@@ -36,6 +47,7 @@ const displayData = items =>{
         <img src="${item.image_url}" class="img-fluid rounded-start" alt="...">
         <p class="card-text">${item.details}</p>
         `;
+
     const foundItems = document.getElementById('items-found');
     foundItems.innerText = `${items.length} Items Found
         `;
