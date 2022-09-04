@@ -38,7 +38,6 @@ const loadData = async(id) =>{
     catch (error){
         console.log(error);
     }
-    
 }
 const toggleSpinner = isLoading => {
     const loaderSection = document.getElementById('loader');
@@ -51,7 +50,6 @@ const toggleSpinner = isLoading => {
 }
 
 const displayData = items =>{
-    
     const showItems = document.getElementById('show-items');
     // showItems.textContent = '';
     items.forEach(item =>{
