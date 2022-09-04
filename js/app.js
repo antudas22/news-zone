@@ -19,10 +19,16 @@ const displayCategoriesName = categories =>{
         <button onclick="loadData(${category.category_id})" class="bg-white border-0">${category.category_name}</button>
         `;
         categorySection.appendChild(categoryDiv);
+        
     })
+    // stop loader
+    toggleSpinner(false);
+    
 }
 
 const loadData = async(id) =>{
+    // start loader
+    toggleSpinner(true);
     const url = `https://openapi.programming-hero.com/api/news/category/0${id}`
     try {
         const res = await fetch(url)
@@ -33,6 +39,15 @@ const loadData = async(id) =>{
         console.log(error);
     }
     
+}
+const toggleSpinner = isLoading => {
+    const loaderSection = document.getElementById('loader');
+    if(isLoading){
+        loaderSection.classList.remove('d-none')
+    }
+    else{
+        loaderSection.classList.add('d-none')
+    }
 }
 
 const displayData = items =>{
