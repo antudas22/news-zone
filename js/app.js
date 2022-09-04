@@ -61,6 +61,8 @@ const displayData = items =>{
         modalDetails.innerHTML = `
         <img src="${item.image_url}" class="img-fluid rounded-start" alt="...">
         <p class="card-text">${item.details}</p>
+        <p>Rating: ${item.rating.number}</p>
+        <p>Badge: ${item.rating.badge}</p>
         `;
 
     const foundItems = document.getElementById('items-found');
